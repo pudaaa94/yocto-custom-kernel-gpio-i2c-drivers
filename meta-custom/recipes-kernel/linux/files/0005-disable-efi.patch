@@ -1,0 +1,50 @@
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 05c9bbfe444d..32706e32fc95 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -1959,6 +1959,7 @@ config EFI
+ 	select EFI_STUB
+ 	select EFI_ARMSTUB
+ 	select EFI_RUNTIME_WRAPPERS
++	default n
+ 	---help---
+ 	  This option provides support for runtime services provided
+ 	  by UEFI firmware (such as non-volatile variables, realtime
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 1dbeca5e80c9..3ac9bf035d94 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1638,7 +1638,7 @@ config EFI
+ 	select EFI_RUNTIME_WRAPPERS
+ 	select EFI_STUB
+ 	select EFI_ARMSTUB
+-	default y
++	default n
+ 	help
+ 	  This option provides support for runtime services provided
+ 	  by UEFI firmware (such as non-volatile variables, realtime
+diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
+index 16714477eef4..e9ca6d4d3c00 100644
+--- a/arch/ia64/Kconfig
++++ b/arch/ia64/Kconfig
+@@ -102,7 +102,7 @@ config DMI
+ config EFI
+ 	bool
+ 	select UCS2_STRING
+-	default y
++	default n
+ 
+ config SCHED_OMIT_FRAME_POINTER
+ 	bool
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index b49b117bdf0c..3a5a85bf8ff1 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -1987,6 +1987,7 @@ endchoice
+ config EFI
+ 	bool "EFI runtime service support"
+ 	depends on ACPI
++	default n
+ 	select UCS2_STRING
+ 	select EFI_RUNTIME_WRAPPERS
+ 	---help---

@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "module.h": "c",
+        "valarray": "c",
+        "*.x": "c",
+        "*.inc": "c",
+        "bmp280.h": "c",
+        "regmap.h": "c",
+        "random.h": "c",
+        "map": "c"
+    }
+}

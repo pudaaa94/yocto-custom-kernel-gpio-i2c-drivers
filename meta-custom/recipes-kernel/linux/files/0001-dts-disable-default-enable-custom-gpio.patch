@@ -1,0 +1,13 @@
+diff --git a/arch/arm/boot/dts/bcm283x.dtsi b/arch/arm/boot/dts/bcm283x.dtsi
+index f8c613503e3b..946e644cdf0b 100644
+--- a/arch/arm/boot/dts/bcm283x.dtsi
++++ b/arch/arm/boot/dts/bcm283x.dtsi
+@@ -111,7 +111,7 @@
+ 		};
+ 
+ 		gpio: gpio@7e200000 {
+-			compatible = "brcm,bcm2835-gpio";
++			compatible = "puda,custom-bcm2835-gpio-driver", "brcm,bcm2835-gpio";
+ 			reg = <0x7e200000 0xb4>;
+ 			/*
+ 			 * The GPIO IP block is designed for 3 banks of GPIOs.

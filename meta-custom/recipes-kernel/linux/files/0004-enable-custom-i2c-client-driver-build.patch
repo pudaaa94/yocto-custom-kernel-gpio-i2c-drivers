@@ -1,0 +1,32 @@
+diff --git a/drivers/i2c/Kconfig b/drivers/i2c/Kconfig
+index 1474e57ecafc..05b1ef6b5b04 100644
+--- a/drivers/i2c/Kconfig
++++ b/drivers/i2c/Kconfig
+@@ -25,6 +25,15 @@ config I2C
+ 	  This I2C support can also be built as a module.  If so, the module
+ 	  will be called i2c-core.
+ 
++config CUSTOM_BCM2835_I2C_CLIENT
++    bool "Custom BCM2835 I2C driver"
++    default y
++    depends on I2C
++    select REGMAP_I2C
++    help
++      This is the custom I2C driver.
++      Cannot be used together with the custom GPIO driver.
++
+ config ACPI_I2C_OPREGION
+ 	bool "ACPI I2C Operation region support"
+ 	depends on I2C=y && ACPI
+diff --git a/drivers/i2c/Makefile b/drivers/i2c/Makefile
+index bed6ba63c983..445a1411a04c 100644
+--- a/drivers/i2c/Makefile
++++ b/drivers/i2c/Makefile
+@@ -13,6 +13,7 @@ i2c-core-$(CONFIG_OF) 		+= i2c-core-of.o
+ obj-$(CONFIG_I2C_SMBUS)		+= i2c-smbus.o
+ obj-$(CONFIG_I2C_CHARDEV)	+= i2c-dev.o
+ obj-$(CONFIG_I2C_MUX)		+= i2c-mux.o
++obj-$(CONFIG_CUSTOM_BCM2835_I2C_CLIENT)	+= custom-bcm2835-i2c-client-driver.o # compiling custom i2c client driver
+ obj-y				+= algos/ busses/ muxes/
+ obj-$(CONFIG_I2C_STUB)		+= i2c-stub.o
+ obj-$(CONFIG_I2C_SLAVE_EEPROM)	+= i2c-slave-eeprom.o

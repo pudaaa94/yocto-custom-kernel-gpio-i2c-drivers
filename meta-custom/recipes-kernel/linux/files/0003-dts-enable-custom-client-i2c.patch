@@ -1,0 +1,22 @@
+diff --git a/arch/arm/boot/dts/bcm283x.dtsi b/arch/arm/boot/dts/bcm283x.dtsi
+index 2c319767a98e..96ab38b1a42a 100644
+--- a/arch/arm/boot/dts/bcm283x.dtsi
++++ b/arch/arm/boot/dts/bcm283x.dtsi
+@@ -491,7 +491,16 @@
+ 			clocks = <&clocks BCM2835_CLOCK_VPU>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+-			status = "disabled";
++			status = "okay";
++			
++			pinctrl-names = "default";
++			pinctrl-0 = <&i2c1_gpio2>;
++
++			i2c_client_bme280@77 {
++				status = "okay";
++				compatible = "puda,custom_bcm2835_i2c";
++				reg = <0x77>;
++			};
+ 		};
+ 
+ 		vec: vec@7e806000 {
